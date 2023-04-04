@@ -1,0 +1,32 @@
+rommon 43 > confreg
+
+**Reload the Router .
+#Power Cycle the Router
+
+rommon 1 >set
+rommon 2> IP_ADDRESS=10.0.0.1
+rommon 3> IP_SUBNET_MASK=255.255.255.0
+rommon 4> DEFAULT_GATEWAY=10.0.0.2
+rommon 5> TFTP_SERVER=10.0.0.2
+rommon 6> TFTP_FILE=1841-i-mz.bin #Router will automatically get this value .
+rommon 7> TFTP_CHECKSUM=0
+
+rommon 8 > tftpdnld -r #We download the OS image via TFTP Server (Your Laptop).
+
+IP_ADDRESS: 10.0.0.1
+IP_SUBNET_MASK: 255.255.255.0
+DEFAULT_GATEWAY: 10.0.0.1
+TFTP_SERVER: 10.0.0.2
+TFTP_FILE: c1841-spservicesk9-mz.124-15.T.bin
+TFTP_MACADDR: 00:17:95:40:c4:38
+TFTP_VERBOSE: Progress
+TFTP_RETRY_COUNT: 18
+TFTP_TIMEOUT: 7200
+TFTP_CHECKSUM: Yes
+FE_PORT: 0
+FE_SPEED_MODE: Auto Detect
+
+Receiving c1841-spservicesk9-mz.124-15.T.bin from 10.0.0.2 !!!!!!!!!!…….!!!!!
+
+rommon 9 >dir flash:
+rommon 10 > boot flash:c2600-i-mz.121-2.T.bin
